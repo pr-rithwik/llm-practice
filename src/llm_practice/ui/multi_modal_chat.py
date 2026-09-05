@@ -22,7 +22,13 @@ def chat(history):
     response = get_completion_response(
         messages=messages, model=MODEL_GPT_4O_MINI, tools=tools, stream=False
     )
+    
+    counter, MAX_TOOL_CALLS = 0, 5
     while response.choices[0].finish_reason=="tool_calls":
+        counter += 1
+
+        if counter > MAX_TOOL_CALLS:
+            raise RuntimeError("Model exceeded maximum tool calls")
         message = response.choices[0].message
         messages.append(message)
         

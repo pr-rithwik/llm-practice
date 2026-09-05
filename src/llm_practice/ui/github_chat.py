@@ -2,7 +2,7 @@ import gradio as gr
 
 from llm_practice.llm.streaming import get_completion_response
 from llm_practice.tools.github import github_repo_tool
-from llm_practice.constants.models import MODEL_OLLAMA_LLAMA3_2_3B, MODEL_GPT_4O_MINI
+from llm_practice.constants.models import MODEL_GPT_4O_MINI, MODEL_OPEN_ROUTER_LLAMA_3_3_70B_INSTRUCT #, MODEL_OLLAMA_LLAMA3_2_3B, 
 from llm_practice.tools.handle_tool_calls import handle_github_tool_calls
 
 
@@ -45,7 +45,8 @@ def main():
     model_dropdown = gr.Dropdown(
         choices=[
             MODEL_GPT_4O_MINI,
-            MODEL_OLLAMA_LLAMA3_2_3B
+            # MODEL_OLLAMA_LLAMA3_2_3B
+            MODEL_OPEN_ROUTER_LLAMA_3_3_70B_INSTRUCT
         ],
         label="Model",
         value=MODEL_GPT_4O_MINI,

@@ -10,6 +10,7 @@ def handle_github_tool_calls(message):
 
     for tool_call in message.tool_calls:
         if tool_call.function.name == "get_github_repo_stats":
+            print("Tool Call Usage: get_github_repo_stats")
             arguments = json.loads(tool_call.function.arguments)
             repo_url = arguments.get('repo_url')
             details = get_github_repo_stats(repo_url=repo_url)
@@ -28,6 +29,7 @@ def handle_multi_modal_tool_calls(message):
 
     for tool_call in message.tool_calls:
         if tool_call.function.name == "talker":
+            print("Tool Call Usage: talker")
             arguments = json.loads(tool_call.function.arguments)
             message = arguments.get('message')
             voice = talker(message=message)
@@ -38,6 +40,7 @@ def handle_multi_modal_tool_calls(message):
             })
         
         if tool_call.function.name == "artist":
+            print("Tool Call Usage: artist")
             arguments = json.loads(tool_call.function.arguments)
             city = arguments.get('city')
             cities.append(city)
