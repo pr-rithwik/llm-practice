@@ -27,7 +27,7 @@ def get_image(radio, prompt):
 
 def main():
     with gr.Blocks() as ui:
-        message = gr.TextBox(
+        message = gr.Textbox(
             label="Description of Image",
             submit_btn=True
         )

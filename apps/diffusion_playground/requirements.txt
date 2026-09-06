@@ -1,0 +1,5 @@
+diffusers>=0.40.0
+transformers
+gradio>=6.26.0
+torch
+safetensors
